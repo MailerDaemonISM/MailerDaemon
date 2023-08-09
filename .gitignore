@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 
-mailerdaemon/node_modules
+md/node_modules
 
 # testing
 /coverage
