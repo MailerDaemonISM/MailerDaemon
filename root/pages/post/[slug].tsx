@@ -89,7 +89,7 @@ function PostPage({ post }: Props) {
           </p>
         </div>
         <div className="mt-10">
-          {<PortableText
+          {post.body && <PortableText
             className=""
             dataset={process.env.NEXT_PUBLIC_SANITY_DATASET! || "production"}
             projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID! || "28i481dx"}
