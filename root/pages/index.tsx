@@ -160,6 +160,8 @@ export default function Home({ posts }: Props) {
         <h1 className="text-gray-800 font-bold text-2xl lg:text-3xl text-center mt-2 lg:mt-8 md:mt-12 ">Latest Posts</h1>
          <div className=' sm:grid sm:grid-cols-3'>
           {posts?.map((post) => {
+            
+            let urlForPostImage:string = urlFor(post.mainImage).url() as string;
             return (
               <Link key={post._id} href={`/post/${post.slug.current}`}>
                 <div className=" mx-4 relative max-w-xs overflow-hidden bg-cover bg-no-repeat" style={{ display: "inline-block" }}>
@@ -173,7 +175,7 @@ export default function Home({ posts }: Props) {
                     //   // marginLeft: 40,
                     //   // marginTop: 30,
                     // }}
-                    src={urlFor(post.mainImage).url()}
+                    src={urlForPostImage}
                     alt=""
                   />
                   <div>
@@ -201,6 +203,7 @@ export default function Home({ posts }: Props) {
           <h1 className="text-gray-800 font-bold text-2xl lg:text-3xl text-center mt-2 lg:mt-8 ">Popular Reads</h1>
 
           {posts?.map((post) => {
+            let urlForPostImage:string = urlFor(post.mainImage).url() as string;
             return (
               <Link key={post._id} href={`/post/${post.slug.current}`}>
                 <div className=" lg:ml-2 relative max-w-xs overflow-hidden bg-cover bg-no-repeat" style={{ display:"flex" }}>
@@ -216,7 +219,7 @@ export default function Home({ posts }: Props) {
                 
                     
                     // }}
-                    src={urlFor(post.mainImage).url()}
+                    src={urlForPostImage}
                     alt=""
                   />
                   <div>
