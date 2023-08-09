@@ -260,9 +260,8 @@ export default function Home({ posts }: Props) {
           height="180"
           src="https://www.youtube.com/embed/F8SXYoZdDlE"
           title="YouTube video player"
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
 
         <iframe
@@ -271,9 +270,8 @@ export default function Home({ posts }: Props) {
           height="180"
           src="https://www.youtube.com/embed/9Unn9PrJipE"
           title="YouTube video player"
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
 
         <iframe
@@ -282,9 +280,8 @@ export default function Home({ posts }: Props) {
           height="180"
           src="https://www.youtube.com/embed/rDwTHDuo9to"
           title="YouTube video player"
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
 
         <iframe
@@ -293,9 +290,8 @@ export default function Home({ posts }: Props) {
           height="180"
           src="https://www.youtube.com/embed/Q5zUix83988"
           title="YouTube video player"
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
 
 <iframe
@@ -304,9 +300,8 @@ export default function Home({ posts }: Props) {
           height="180"
           src="https://www.youtube.com/embed/N6CWgqhbwu8"
           title="YouTube video player"
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
 
 <iframe
@@ -315,9 +310,8 @@ export default function Home({ posts }: Props) {
           height="180"
           src="https://www.youtube.com/embed/SljIgF9c9-s"
           title="YouTube video player"
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
 
 <iframe
@@ -326,9 +320,8 @@ export default function Home({ posts }: Props) {
           height="180"
           src="https://www.youtube.com/embed/PT1l5nwHLAs"
           title="YouTube video player"
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
         <iframe
           className="rounded-xl ml-20  md:ml-8 mt-8 mb-4 "
@@ -336,9 +329,8 @@ export default function Home({ posts }: Props) {
           height="180"
           src="https://www.youtube.com/embed/X198lAfenQo"
           title="YouTube video player"
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
       </div>
     
