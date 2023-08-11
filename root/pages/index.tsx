@@ -34,7 +34,7 @@ export default function Home({ posts }: Props) {
 
   return (
     <div className='transition-colors'>
-    <div className="mx-auto mt-0 max-w-10xl ">
+    <div className="mx-auto mt-0 max-w-10xl sm:">
       <Head>
         <title>Mailer Daemon</title>
         <link rel="icon" href="/favicon.ico" />
@@ -95,19 +95,19 @@ export default function Home({ posts }: Props) {
         <div className="leading-relaxed text-center text-xs lg:text-lg">Student run media body of IIT(ISM) Dhanbad.</div>
       </div>
   
-      <div className="px-2  sm:w-1/4  w-14">
+      <div className="px-3 w-2/5 mt-2 sm:w-1/4  w-14">
         <h2 className="title-font font-medium text-sm sm:text-3xl text-gray-900">100k+</h2>
         <p className="leading-relaxed  text-xs sm:text-xl">Likes</p>
       </div>
-      <div className="px-3  sm:w-1/4  w-14">
+      <div className="px-3 w-2/5 mt-2 sm:w-1/4  w-14">
         <h2 className="title-font font-medium text-sm sm:text-3xl text-gray-900">340+</h2>
         <p className="leading-relaxed  text-xs sm:text-xl">Posts</p>
       </div>
-      <div className="px-3  sm:w-1/4  w-14">
+      <div className="px-3 w-2/5 mt-2 sm:w-1/4  w-14">
         <h2 className="title-font font-medium text-sm sm:text-3xl text-gray-900">1k+</h2>
         <p className="leading-relaxed  text-xs sm:text-xl">Downloads</p>
       </div>
-      <div className="px-6  sm:w-1/4  w-14">
+      <div className="px-3 w-2/5 mt-2 sm:w-1/4  w-14">
         <h2 className="title-font font-medium text-sm sm:text-3xl text-gray-900">9</h2>
         <p className="leading-relaxed  text-xs sm:text-xl">hashtags</p>
       </div>
@@ -164,7 +164,7 @@ export default function Home({ posts }: Props) {
             let urlForPostImage:string = urlFor(post.mainImage).url() as string;
             return (
               <Link key={post._id} href={`/post/${post.slug.current}`}>
-                <div className=" mx-4 relative max-w-xs overflow-hidden bg-cover bg-no-repeat" style={{ display: "inline-block" }}>
+                <div className="relative max-w-xs overflow-hidden bg-cover bg-no-repeat" style={{ display: "inline-block" }}>
                   <img
                     className="mx-20 mt-6 mr-10 w-60 h-40  md:w-60 md:h-40 md:mx-4 md:mt-10 mb-6 max-w-xs transition duration-300 ease-in-out hover:scale-110"
                     // style={{
@@ -252,10 +252,10 @@ export default function Home({ posts }: Props) {
 
 
       <h1 className="text-center font-bold text-2xl md:text-3xl mt-12 mb-6">Glimpses Of Mailer Daemon</h1>
-      <div className="lg:grid grid-cols-4 gap-1 flex md:ml-10 flex-wrap">
+      <div className="lg:grid grid-cols-4 gap-1 flex md: flex-wrap">
 
         <iframe
-          className="rounded-xl ml-8 md:ml-8 mt-8 mb-4 "
+          className="rounded-xl mx-auto md: mt-20 mb-4 "
           width="250"
           height="180"
           src="https://www.youtube.com/embed/F8SXYoZdDlE"
@@ -265,7 +265,7 @@ export default function Home({ posts }: Props) {
         ></iframe>
 
         <iframe
-          className="rounded-xl ml-20  md:ml-8 mt-8 mb-4 "
+          className="rounded-xl mx-auto md: mt-20 mb-4  "
           width="250"
           height="180"
           src="https://www.youtube.com/embed/9Unn9PrJipE"
@@ -275,7 +275,7 @@ export default function Home({ posts }: Props) {
         ></iframe>
 
         <iframe
-          className="rounded-xl ml-20  md:ml-8 mt-8 mb-4 "
+          className="rounded-xl mx-auto md: mt-20 mb-4  "
           width="250"
           height="180"
           src="https://www.youtube.com/embed/rDwTHDuo9to"
@@ -285,7 +285,7 @@ export default function Home({ posts }: Props) {
         ></iframe>
 
         <iframe
-          className="rounded-xl ml-20  md:ml-8 mt-8 mb-4 "
+          className="rounded-xl mx-auto md: mt-20 mb-4  "
           width="250"
           height="180"
           src="https://www.youtube.com/embed/Q5zUix83988"
@@ -295,7 +295,7 @@ export default function Home({ posts }: Props) {
         ></iframe>
 
 <iframe
-          className="rounded-xl ml-20  md:ml-8 mt-8 mb-4" 
+          className="rounded-xl mx-auto md: mt-20 mb-4 " 
           width="250"
           height="180"
           src="https://www.youtube.com/embed/N6CWgqhbwu8"
@@ -305,7 +305,7 @@ export default function Home({ posts }: Props) {
         ></iframe>
 
 <iframe
-          className="rounded-xl ml-20  md:ml-8 mt-8 mb-4 "
+          className="rounded-xl mx-auto md: mt-20 mb-4  "
           width="250"
           height="180"
           src="https://www.youtube.com/embed/SljIgF9c9-s"
@@ -315,7 +315,7 @@ export default function Home({ posts }: Props) {
         ></iframe>
 
 <iframe
-          className="rounded-xl ml-20  md:ml-8 mt-8 mb-4 "
+          className="rounded-xl mx-auto md: mt-20 mb-4 "
           width="250"
           height="180"
           src="https://www.youtube.com/embed/PT1l5nwHLAs"
@@ -324,7 +324,7 @@ export default function Home({ posts }: Props) {
           allowFullScreen
         ></iframe>
         <iframe
-          className="rounded-xl ml-20  md:ml-8 mt-8 mb-4 "
+          className="rounded-xl mx-auto md: mt-20 mb-4 "
           width="250"
           height="180"
           src="https://www.youtube.com/embed/X198lAfenQo"
@@ -394,7 +394,7 @@ export default function Home({ posts }: Props) {
             {/* <label for="footer-field" className="leading-7 text-sm text-gray-600">Placeholder</label> */}
             <input type="text" id="footer-field" name="footer-field" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 w-50 md:w-96 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
           </div>
-          <button className="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Submit</button>
+          <button className="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded sm:mt-10">Submit</button>
         </div>
         <p className="text-gray-500 text-sm mt-2 md:text-left text-center">It's news till it's new.
           <br className="lg:block hidden"/>All of you are our first priority.
