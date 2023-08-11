@@ -37,7 +37,7 @@ export default function Home({ posts }: Props) {
     <div className="mx-auto mt-0 max-w-10xl sm:">
       <Head>
         <title>Mailer Daemon</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon-16x16.png" />
       </Head>
       <Header />
      
@@ -94,22 +94,24 @@ export default function Home({ posts }: Props) {
         {/* <h1 className="title-font font-medium text-xl mb-2 text-gray-900">Moon hashtag pop-up try-hard offal truffaut</h1> */}
         <div className="leading-relaxed text-center text-xs lg:text-lg">Student run media body of IIT(ISM) Dhanbad.</div>
       </div>
-  
-      <div className="px-3 w-2/5 mt-2 sm:w-1/4  w-14">
-        <h2 className="title-font font-medium text-sm sm:text-3xl text-gray-900">100k+</h2>
-        <p className="leading-relaxed  text-xs sm:text-xl">Likes</p>
-      </div>
-      <div className="px-3 w-2/5 mt-2 sm:w-1/4  w-14">
-        <h2 className="title-font font-medium text-sm sm:text-3xl text-gray-900">340+</h2>
-        <p className="leading-relaxed  text-xs sm:text-xl">Posts</p>
-      </div>
-      <div className="px-3 w-2/5 mt-2 sm:w-1/4  w-14">
-        <h2 className="title-font font-medium text-sm sm:text-3xl text-gray-900">1k+</h2>
-        <p className="leading-relaxed  text-xs sm:text-xl">Downloads</p>
-      </div>
-      <div className="px-3 w-2/5 mt-2 sm:w-1/4  w-14">
-        <h2 className="title-font font-medium text-sm sm:text-3xl text-gray-900">9</h2>
-        <p className="leading-relaxed  text-xs sm:text-xl">hashtags</p>
+      
+      <div className = "flex flex-wrap w-full justify-between xl:w-full content-start  justify-between">
+        <div className="px-3 w-2/5 mt-2 sm:w-1/4  ">
+          <h2 className="title-font font-medium text-sm sm:text-lg lg:text-3xl text-gray-900">100k+</h2>
+          <p className="leading-relaxed  text-xs sm:text-lg lg:text-xl">Likes</p>
+        </div>
+        <div className="px-3 w-2/5 mt-2 sm:w-1/4  ">
+          <h2 className="title-font font-medium text-sm sm:text-lg lg:text-3xl text-gray-900">340+</h2>
+          <p className="leading-relaxed  text-xs sm:text-lg lg:text-xl">Posts</p>
+        </div>
+        <div className="px-3 w-2/5 mt-2 sm:w-1/4 ">
+          <h2 className="title-font font-medium text-sm sm:text-lg lg:text-3xl text-gray-900">1k+</h2>
+          <p className="leading-relaxed  text-xs sm:text-lg lg:text-xl">Downloads</p>
+        </div>
+        <div className="px-3 w-2/5 mt-2 sm:w-1/4  ">
+          <h2 className="title-font font-medium text-sm sm:text-lg lg:text-3xl text-gray-900">9</h2>
+          <p className="leading-relaxed  text-xs sm:text-lg lg:text-xl">hashtags</p>
+        </div>
       </div>
     </div>
    
