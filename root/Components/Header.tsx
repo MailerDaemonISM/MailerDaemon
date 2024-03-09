@@ -9,7 +9,7 @@ import Link from 'next/link'
     <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
     <img src={`/unnamed.png`} alt="" className=" pl-2 rounded-md md:w-14 md:h-12 w-11 h-10"  />
     
-    <a href="http://localhost:3000/">  
+    <a href="https://mailer-daemon.vercel.app/">  
 
     <span className="ml-3 text-xl md:text-3xl text-gray-800 ">Mailer Daemon</span></a>
    

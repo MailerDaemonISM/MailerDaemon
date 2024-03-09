@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next'
 import Header from '../../Components/Header'
 import { sanityClient, urlFor } from '../../sanity'
-import { Post } from '../../typings'
+import { issue } from '../../typings'
 import PortableText from 'react-portable-text'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useState } from 'react'
@@ -15,11 +15,11 @@ interface IFormInput {
 }
 
 interface Props {
-  post: Post
+  issue: issue
 }
 
-function PostPage({ post }: Props) {
-//   console.log(post);
+function PostPage({ issue }: Props) {
+   console.log(issue.pdf);
 
   const [submitted, setSubmitted] = useState(false)
 
@@ -53,18 +53,19 @@ function PostPage({ post }: Props) {
       <div className='hidden md:inline-block absolute w-72 h-72 bg-pink-300 rounded-full top-[160vh] -right-20 mix-blend-multiply opacity-80 blur-sm'></div>
       {/* <div className='hidden md:inline-block absolute w-72 h-72 bg-orange-500 rounded-full top-[50vh] -left-28 mix-blend-multiply opacity-80 blur-sm'></div> */}
       <Head>
-        <title>{post.title}</title>
+        <title>{issue.title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
 
     
       <section className="text-gray-600 my-auto body-font">
-  <div className="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center">
-    <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-      <img className="object-cover border-2 object-center rounded" alt="hero"  src={urlFor(post.mainImage).url()!}/>
+  <div className="container mx-auto flex lg:px-5 py-12 md:flex-row flex-col items-center">
+    <div className="w-full lg:mt-4 lg:max-w-lg lg:w-full md:w-2/3 w-5/6 mb-10 md:mb-0">
+      {/* <img className="object-cover border-2 object-center rounded" alt="hero"  src={urlFor(issue.mainImage).url()!}/> */}
+      <iframe src={issue.pdf} className='w-full lg:h-screen h-96' allow="autoplay"></iframe>
     </div>
-    <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+    <div className="lg:flex-grow md:w-1/3 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
       {/* <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Before they sold out
         <br className="hidden lg:inline-block"/>readymade gluten
       </h1>
@@ -74,18 +75,17 @@ function PostPage({ post }: Props) {
         <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button>
       </div> */}
        <article className="mx-2 max-w-3xl p-50">
-        <h1 className="mt-10 mb-3 text-3xl mx-2 lg:mx-0">{post.title}</h1>
-        <h2 className="text-xl font-light text-gray-500 mx-2 lg:mx-0">{post.description}</h2>
+        <h1 className="mt-10 mb-3 text-3xl mx-2 lg:mx-0">{issue.title}</h1>
         <div className="flex items-center space-x-2 mx-2 lg:mx-0">
           <img
             className="h-10 w-10 rounded-full"
-            src={urlFor(post.author.image).url()!}
+            src={urlFor(issue.author.image).url()!}
             alt=""
           />
           <p className="text-sm font-extralight">
             Blog post by{' '}
-            <span className="text-green-600">{post.author.name}</span> -
-            Published at {new Date(post._createdAt).toLocaleString()}
+            <span className="text-green-600">{issue.author.name}</span> -
+            Published at {new Date(issue._createdAt).toLocaleString()}
           </p>
         </div>
         <div className="mt-10 ">
@@ -93,7 +93,7 @@ function PostPage({ post }: Props) {
             className=""
             dataset={process.env.NEXT_PUBLIC_SANITY_DATASET! || "production"}
             projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID! || "28i481dx"}
-            content={post.body}
+            content={issue.body}
             serializers={{
               h1: (props: any) => (
                 <h1 className="my-5 text-2xl font-bold" {...props} />
@@ -146,7 +146,7 @@ function PostPage({ post }: Props) {
             {...register('_id')}
             type="hidden"
             name="_id"
-            value={post._id}
+            value={issue._id}
           />
 
           <label className="mb-5 block">
@@ -199,7 +199,7 @@ function PostPage({ post }: Props) {
       <div className="my-10 mx-auto flex max-w-2xl flex-col space-y-2 p-10 shadow shadow-yellow-500">
         <h3 className="text-4xl">Comments</h3>
         <hr className="pb-2" />
-        {post.comments.map((comment) => {
+        {issue.comments.map((comment) => {
           return (
             <div key={comment._id}>
               <p>
@@ -306,16 +306,17 @@ function PostPage({ post }: Props) {
 export default PostPage
 
 export const getStaticPaths = async () => {
-  const query = `*[_type=="post"]{
+  const query = `*[_type=="issue"]{
   _id,
+  pdf,
   slug {
     current
 }
  }`
-  const posts = await sanityClient.fetch(query)
-  const paths = posts.map((post: Post) => ({
+  const issue = await sanityClient.fetch(query)
+  const paths = issue.map((issue: issue) => ({
     params: {
-      slug: post.slug.current,
+      slug: issue.slug.current,
     },
   }))
   return {
@@ -325,8 +326,9 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const query = `*[_type=="post" && slug.current==$slug][0]{
+  const query = `*[_type=="issue" && slug.current==$slug][0]{
   _id,
+  pdf,
   _createdAt,
   title,
   author->{
@@ -338,23 +340,22 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   post._ref == ^._id && 
   approved == true
 ],
-description,
 mainImage,
 slug,
 body
  }`
-  const post = await sanityClient.fetch(query, {
+  const issue = await sanityClient.fetch(query, {
     slug: params?.slug,
   })
 
-  if (!post) {
+  if (!issue) {
     return {
       notFound: true,
     }
   }
   return {
     props: {
-      post,
+      issue,
     },
     revalidate: 60, //after 60 seconds
   }

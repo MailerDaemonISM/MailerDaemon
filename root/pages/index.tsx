@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Header from '../Components/Header'
 import Typed from "react-typed";
 import { sanityClient, urlFor } from "../sanity";
-import { Post } from "../typings";
+import { Post, issue } from "../typings";
 import styles from "./style.module.css"
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -13,6 +13,7 @@ import { Carousel } from 'react-responsive-carousel';
 
 interface Props{
   posts: [Post];
+  issue: [issue];
 }
 
 const getConfigurableProps = () => ({
@@ -29,7 +30,7 @@ const getConfigurableProps = () => ({
 
 
 
-export default function Home({ posts }: Props) {
+export default function Home({ posts,issue }: Props) {
 
   return (
     <div className='transition-colors'>
@@ -129,25 +130,6 @@ export default function Home({ posts }: Props) {
 
 
 
-      {/* posts */}
-      {/* <div className="grid grid-cols-1 gap-3 p-2 md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:p-6">
-        {posts.map(post => {
-          return (
-            <Link key={post._id} href={`/post/${post.slug.current}`}>
-              <div className="overflow-hidden border rounded-lg cursor-pointer group">
-                <img className="object-cover w-full transition-transform duration-200 ease-in-out h-60 group-hover:scale-105" src={urlFor(post.mainImage).url()!} alt="" />
-                <div className="flex justify-between p-5 bg-white">
-                  <div>
-                    <p className="text-lg font-bold">{post.title}</p>
-                    <p className="text-xs">{post.description} by {post.author.name}</p>
-                  </div>
-                  <img className="w-12 h-12 rounded-full" src={urlFor(post.author.image).url()!} alt="" />
-                </div>
-              </div>
-            </Link>
-          )
-        })}
-      </div> */}
 
 
 
@@ -157,7 +139,7 @@ export default function Home({ posts }: Props) {
 
        <div className="lg:flex mt-20 lg:flex-row">
        
-        <div className=" overflow-auto w-full mr-8 lg:w-2/3 h-96 lg:h-96 lg:bg-gray-100 ">
+        <div className=" overflow-auto w-full mr-8 lg:w-2/3 h-96 lg:h-96 lg:bg-gray-100">
         <h1 className="text-gray-800 font-bold text-2xl lg:text-3xl text-center mt-2 lg:mt-8 md:mt-12 ">Latest Posts</h1>
          <div className=' sm:grid sm:grid-cols-3'>
           {posts?.map((post) => {
@@ -168,14 +150,6 @@ export default function Home({ posts }: Props) {
                 <div className="relative max-w-xs overflow-hidden bg-cover bg-no-repeat" style={{ display: "inline-block" }}>
                   <img
                     className="mx-20 mt-6 mr-10 w-60 h-40  md:w-60 md:h-40 md:mx-4 md:mt-10 mb-6 max-w-xs transition duration-300 ease-in-out hover:scale-110"
-                    // style={{
-                    //   height: 180,
-                    //   width: 180,
-                    //   // height: 180,
-                    //   // width: 190,
-                    //   // marginLeft: 40,
-                    //   // marginTop: 30,
-                    // }}
                     src={urlForPostImage}
                     alt=""
                   />
@@ -203,10 +177,10 @@ export default function Home({ posts }: Props) {
         <div className="overflow-y-auto mt-20 lg:mt-2 ml-5 w-full lg:w-1/3 h-96  ">
           <h1 className="text-gray-800 font-bold text-2xl lg:text-3xl text-center mt-2 lg:mt-8 ">Popular Reads</h1>
 
-          {posts?.map((post) => {
+          {issue?.map((post) => {
             let urlForPostImage:string = urlFor(post.mainImage).url() as string;
             return (
-              <Link key={post._id} href={`/post/${post.slug.current}`}>
+              <Link key={post._id} href={`/read/${post.slug.current}`}>
                 <div className=" lg:ml-2 relative max-w-xs overflow-hidden bg-cover bg-no-repeat" style={{ display:"flex" }}>
                   <img
                     className="h-25 w-20 mt-5 max-w-xs transition duration-300 ease-in-out hover:scale-110"
@@ -360,34 +334,11 @@ export default function Home({ posts }: Props) {
           <li>
             <a className="text-gray-600 hover:text-gray-800" href="https://play.google.com/store/apps/details?id=com.mailerdaemon.app&hl=en_IN&gl=US" target="_blank" >md App</a>
           </li>
-          {/* <li>
-            <a className="text-gray-600 hover:text-gray-800">Ismgram App</a>
-          </li> */}
           <li>
             <a className="text-gray-600 hover:text-gray-800" href="https://placementor-iit-dhanbad.onrender.com" target="_blank">Placementor website</a>
           </li>
-          {/* <li>
-            <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
-          </li> */}
         </nav>
       </div>
-      {/* <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
-        <nav className="list-none mb-10">
-          <li>
-            <a className="text-gray-600 hover:text-gray-800">First Link</a>
-          </li>
-          <li>
-            <a className="text-gray-600 hover:text-gray-800">Second Link</a>
-          </li>
-          <li>
-            <a className="text-gray-600 hover:text-gray-800">Third Link</a>
-          </li>
-          <li>
-            <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
-          </li>
-        </nav>
-      </div> */}
       <div className="lg:w-1/4 md:w-1/2 w-full px-4">
         <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Any Suggestions!!</h2>
         <div className="flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start">
@@ -403,7 +354,7 @@ export default function Home({ posts }: Props) {
       </div>
     </div>
   </div>
-  <div className="bg-gray-100 w-[100%]">
+  <div className="bg-gray-100 lg:w-[100%] md:w-[110%]">
     <div className="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
       <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
         {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
@@ -473,11 +424,24 @@ export const getServerSideProps = async () => {
       mainImage
   }`
 
+  const query2 = `*[_type == "issue"]| order(_createdAt desc){
+    _id,
+    title,
+    author -> {
+      name,
+      image
+    },
+      slug,
+      mainImage
+  }`
+
   const posts = await sanityClient.fetch(query);
+  const issue = await sanityClient.fetch(query2);
 
   return {
     props: {
       posts,
+      issue,
     },
   }
 

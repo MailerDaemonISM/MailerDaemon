@@ -18,6 +18,26 @@ export interface Post{
   };
   body: [object];
 }
+export interface issue{
+  _id: string;
+  _createdAt: string;
+  title: string;
+  author: {
+    name: string;
+    image: string;
+  };
+  comments: [Comment];
+  mainImage: {
+    asset: {
+      url: string;
+    };
+  };
+  slug: {
+    current: string;
+  };
+  body: [object];
+  pdf:string;
+}
 
 export interface Comment{
   approved: boolean;
