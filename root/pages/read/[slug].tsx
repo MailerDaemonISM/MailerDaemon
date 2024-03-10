@@ -60,21 +60,11 @@ function PostPage({ issue }: Props) {
 
     
       <section className="text-gray-600 my-auto body-font">
-  <div className="container mx-auto flex lg:px-5 py-12 md:flex-row flex-col items-center">
+  <div className="container mx-auto flex lg:px-5 py-2 md:flex-row flex-col items-center">
     <div className="w-full lg:mt-4 lg:max-w-lg lg:w-full md:w-2/3 w-5/6 mb-10 md:mb-0">
       {/* <img className="object-cover border-2 object-center rounded" alt="hero"  src={urlFor(issue.mainImage).url()!}/> */}
-      <iframe src={issue.pdf} className='w-full lg:h-screen h-96' allow="autoplay"></iframe>
-    </div>
-    <div className="lg:flex-grow md:w-1/3 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-      {/* <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Before they sold out
-        <br className="hidden lg:inline-block"/>readymade gluten
-      </h1>
-      <p className="mb-8 leading-relaxed">Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot chicken authentic tumeric truffaut hexagon try-hard chambray.</p>
-      <div className="flex justify-center">
-        <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
-        <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button>
-      </div> */}
-       <article className="mx-2 max-w-3xl p-50">
+      
+      <article className="mx-2 max-w-3xl p-50">
         <h1 className="mt-10 mb-3 text-3xl mx-2 lg:mx-0">{issue.title}</h1>
         <div className="flex items-center space-x-2 mx-2 lg:mx-0">
           <img
@@ -117,6 +107,17 @@ function PostPage({ issue }: Props) {
         </div>
       </article>
     </div>
+    <div className="lg:flex-grow md:w-1/3 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+      {/* <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Before they sold out
+        <br className="hidden lg:inline-block"/>readymade gluten
+      </h1>
+      <p className="mb-8 leading-relaxed">Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot chicken authentic tumeric truffaut hexagon try-hard chambray.</p>
+      <div className="flex justify-center">
+        <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+        <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button>
+      </div> */}
+       <iframe src={issue.pdf} className='w-full lg:h-screen h-96' allow="autoplay"></iframe>
+    </div>
   </div>
 </section>
 
@@ -131,7 +132,7 @@ function PostPage({ issue }: Props) {
           <h3 className="text-3xl font-bold">
             Thank You for submitting your comment!
           </h3>
-          <p>Once it has been approved,it will appear below!!!</p>
+          {/* <p>Once it has been approved,it will appear below!!!</p> */}
         </div>
       ) : (
         <form
@@ -196,7 +197,7 @@ function PostPage({ issue }: Props) {
           />
         </form>
       )}
-      <div className="my-10 mx-auto flex max-w-2xl flex-col space-y-2 p-10 shadow shadow-yellow-500">
+      {/* <div className="my-10 mx-auto flex max-w-2xl flex-col space-y-2 p-10 shadow shadow-yellow-500">
         <h3 className="text-4xl">Comments</h3>
         <hr className="pb-2" />
         {issue.comments.map((comment) => {
@@ -209,7 +210,7 @@ function PostPage({ issue }: Props) {
             </div>
           )
         })}
-      </div>
+      </div> */}
 
       <footer className="text-gray-600 body-font">
   <div className="container px-5 pt-20 pb-8 mx-auto">
