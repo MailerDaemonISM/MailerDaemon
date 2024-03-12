@@ -19,7 +19,7 @@ interface Props {
 }
 
 function PostPage({ post }: Props) {
-//   console.log(post);
+  console.log(post);
 
   const [submitted, setSubmitted] = useState(false)
 
@@ -54,7 +54,7 @@ function PostPage({ post }: Props) {
       {/* <div className='hidden md:inline-block absolute w-72 h-72 bg-orange-500 rounded-full top-[50vh] -left-28 mix-blend-multiply opacity-80 blur-sm'></div> */}
       <Head>
         <title>{post.title}</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="../favicon-16x16.png" />
       </Head>
       <Header />
 
@@ -131,7 +131,7 @@ function PostPage({ post }: Props) {
           <h3 className="text-3xl font-bold">
             Thank You for submitting your comment!
           </h3>
-          <p>Once it has been approved,it will appear below!!!</p>
+          {/* <p>Once it has been approved,it will appear below!!!</p> */}
         </div>
       ) : (
         <form
@@ -196,7 +196,7 @@ function PostPage({ post }: Props) {
           />
         </form>
       )}
-      <div className="my-10 mx-auto flex max-w-2xl flex-col space-y-2 p-10 shadow shadow-yellow-500">
+      {/* <div className="my-10 mx-auto flex max-w-2xl flex-col space-y-2 p-10 shadow shadow-yellow-500">
         <h3 className="text-4xl">Comments</h3>
         <hr className="pb-2" />
         {post.comments.map((comment) => {
@@ -209,7 +209,7 @@ function PostPage({ post }: Props) {
             </div>
           )
         })}
-      </div>
+      </div> */}
 
       <footer className="text-gray-600 body-font">
   <div className="container px-5 pt-20 pb-8 mx-auto">

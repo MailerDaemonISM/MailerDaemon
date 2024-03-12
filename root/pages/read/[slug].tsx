@@ -19,7 +19,7 @@ interface Props {
 }
 
 function PostPage({ issue }: Props) {
-   console.log(issue.pdf);
+   console.log(issue.compressed);
 
   const [submitted, setSubmitted] = useState(false)
 
@@ -54,14 +54,14 @@ function PostPage({ issue }: Props) {
       {/* <div className='hidden md:inline-block absolute w-72 h-72 bg-orange-500 rounded-full top-[50vh] -left-28 mix-blend-multiply opacity-80 blur-sm'></div> */}
       <Head>
         <title>{issue.title}</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="../favicon-16x16.png" />
       </Head>
       <Header />
 
     
       <section className="text-gray-600 my-auto body-font">
   <div className="container mx-auto flex lg:px-5 py-2 md:flex-row flex-col items-center">
-    <div className="w-full lg:mt-4 lg:max-w-lg lg:w-full md:w-2/3 w-5/6 mb-10 md:mb-0">
+    <div className="lg:mt-4 lg:max-w-lg lg:w-full md:w-2/3 w-5/6 mb-10 md:mb-0">
       {/* <img className="object-cover border-2 object-center rounded" alt="hero"  src={urlFor(issue.mainImage).url()!}/> */}
       
       <article className="mx-2 max-w-3xl p-50">
@@ -104,19 +104,26 @@ function PostPage({ issue }: Props) {
               // )
             }}
           />}
+          <br/>
+          <div className='flex'>
+            {issue.pdf && <a target='_blank' href={issue.pdf}>
+              <button className="flex h-8 bg-blue-500  hover:bg-blue-700 text-white py-1 px-2 rounded">
+                <img className='h-4 my-1 mr-2' src='../downloadIcon.png'></img>
+                HD
+              </button>
+            </a>}
+            {issue.compressed && <a target='_blank' href={issue.compressed}>
+              <button className="flex mx-2 h-8 bg-green-500  hover:bg-green-700 text-white py-1 px-2 rounded">
+                <img className='h-4 my-1 mr-2' src='../downloadIcon.png'></img>
+                Compressed
+              </button>
+            </a>}
+          </div>
         </div>
       </article>
     </div>
     <div className="lg:flex-grow md:w-1/3 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-      {/* <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Before they sold out
-        <br className="hidden lg:inline-block"/>readymade gluten
-      </h1>
-      <p className="mb-8 leading-relaxed">Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot chicken authentic tumeric truffaut hexagon try-hard chambray.</p>
-      <div className="flex justify-center">
-        <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
-        <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button>
-      </div> */}
-       <iframe src={issue.pdf} className='w-full lg:h-screen h-96' allow="autoplay"></iframe>
+       <iframe src={issue.compressed?issue.compressed:issue.pdf} className='w-full lg:h-screen h-96' allow="autoplay"></iframe>
     </div>
   </div>
 </section>
@@ -330,6 +337,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const query = `*[_type=="issue" && slug.current==$slug][0]{
   _id,
   pdf,
+  compressed,
   _createdAt,
   title,
   author->{

@@ -48,6 +48,11 @@ export default defineType({
       title:'pdf',
       type:'string',
     }),
+    defineField({
+      name:'compressed',
+      title:'compressed',
+      type:'string',
+    }),
   ],
 
   preview: {

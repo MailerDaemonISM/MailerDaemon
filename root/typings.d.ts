@@ -37,6 +37,7 @@ export interface issue{
   };
   body: [object];
   pdf:string;
+  compressed:string;
 }
 
 export interface Comment{
