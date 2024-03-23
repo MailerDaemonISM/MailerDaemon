@@ -56,3 +56,10 @@ export interface Comment{
   _type: string;
   _updatedAt: string;
 }
+
+export interface yt{
+  _id: string;
+  _createdAt: string;
+  title: string;
+  link:string;
+}

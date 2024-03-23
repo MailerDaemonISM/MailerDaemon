@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Header from '../Components/Header'
 import Typed from "react-typed";
 import { sanityClient, urlFor } from "../sanity";
-import { Post, issue } from "../typings";
+import { Post, issue, yt } from "../typings";
 import styles from "./style.module.css"
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -14,6 +14,7 @@ import { Carousel } from 'react-responsive-carousel';
 interface Props{
   posts: [Post];
   issue: [issue];
+  yt: [yt];
 }
 
 const getConfigurableProps = () => ({
@@ -30,7 +31,7 @@ const getConfigurableProps = () => ({
 
 
 
-export default function Home({ posts,issue }: Props) {
+export default function Home({ posts,issue,yt, }: Props) {
 
   return (
     <div className='transition-colors'>
@@ -40,41 +41,6 @@ export default function Home({ posts,issue }: Props) {
         <link rel="icon" href="/favicon-16x16.png" />
       </Head>
       <Header />
-     
-      {/* <div className="flex items-center justify-center h-screen py-10 mt-0 mb-5 lg:py-0 text-white-400">
-      <img className="object-cover w-screen h-screen contrast-100 blur-lg" src="/heritage_building.jpeg" />
-   
-      <header  className="absolute w-full px-20 py-10 mb-16 font-bold text-center bg-white rounded-md bg-opacity-30 group z-5 md:w-3/4 lg:w-1/2">
-     <h1 className="max-w-xl font-serif text-3xl md:text-6xl ml-[5%] text-center ">
-       
-        <Typed
-        className="text-right"
-            strings={["Mailer Daemon"]}
-            typeSpeed={80}
-            backSpeed={80}
-            loop
-          />
-          </h1>
-     <div className="text-xl  p-2  md:text-1.5xl font-extrabold ">Student run media body of IIT(ISM) Dhanbad.</div>
-      </header>
-      </div>
-    <div className='py-28'>
-     <Carousel {...getConfigurableProps()}>
-     {posts.filter((post,idx)=>{
-       if(idx<8) return post
-     }).map((post,idx) => {
-       
-            return (
-              <Link key={post._id} href={`/post/${post.slug.current}`}>
-            <div className='pt-1 pb-10 m-auto my-10 mt-10 border-4 border-black w-[25rem] h-80 rounded-2xl cursor-pointer'>
-              <img className='object-cover w-full h-full' src={urlFor(post.mainImage).url()!}></img>
-              <h1 className='p-2 font-bold'>{post.title}</h1>
-              </div>
-              </Link>
-              )
-                })}
-     </Carousel>
-     </div> */}
 
 <section className="text-gray-700 body-font">
   <div className="container md:px-5  mx-auto flex flex-wrap">
@@ -228,85 +194,21 @@ export default function Home({ posts,issue }: Props) {
 
       <h1 className="text-center font-bold text-2xl md:text-3xl mt-12 mb-6">Glimpses Of Mailer Daemon</h1>
       <div className="lg:grid grid-cols-4 gap-1 flex md: flex-wrap">
-
-        <iframe
-          className="rounded-xl mx-auto md: mt-20 mb-4 "
-          width="250"
-          height="180"
-          src="https://www.youtube.com/embed/F8SXYoZdDlE"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
-
-        <iframe
-          className="rounded-xl mx-auto md: mt-20 mb-4  "
-          width="250"
-          height="180"
-          src="https://www.youtube.com/embed/9Unn9PrJipE"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
-
-        <iframe
-          className="rounded-xl mx-auto md: mt-20 mb-4  "
-          width="250"
-          height="180"
-          src="https://www.youtube.com/embed/rDwTHDuo9to"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
-
-        <iframe
-          className="rounded-xl mx-auto md: mt-20 mb-4  "
-          width="250"
-          height="180"
-          src="https://www.youtube.com/embed/Q5zUix83988"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
-
-<iframe
-          className="rounded-xl mx-auto md: mt-20 mb-4 " 
-          width="250"
-          height="180"
-          src="https://www.youtube.com/embed/N6CWgqhbwu8"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
-
-<iframe
-          className="rounded-xl mx-auto md: mt-20 mb-4  "
-          width="250"
-          height="180"
-          src="https://www.youtube.com/embed/SljIgF9c9-s"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
-
-<iframe
-          className="rounded-xl mx-auto md: mt-20 mb-4 "
-          width="250"
-          height="180"
-          src="https://www.youtube.com/embed/PT1l5nwHLAs"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
-        <iframe
-          className="rounded-xl mx-auto md: mt-20 mb-4 "
-          width="250"
-          height="180"
-          src="https://www.youtube.com/embed/X198lAfenQo"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+        
+        { yt.map( (ele) => {
+          return (
+            <iframe
+            className="rounded-xl mx-auto md: mt-20 mb-4 "
+            width="250"
+            height="180"
+            src={ele.link}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+          )
+        })
+        }
       </div>
     
     </div>
@@ -435,13 +337,21 @@ export const getServerSideProps = async () => {
       mainImage
   }`
 
+  const query3 = `*[_type == "yt"]| order(_createdAt desc){
+    _id,
+    title,
+    link,
+  }`
+
   const posts = await sanityClient.fetch(query);
   const issue = await sanityClient.fetch(query2);
+  const yt = await sanityClient.fetch(query3);
 
   return {
     props: {
       posts,
       issue,
+      yt,
     },
   }
 
