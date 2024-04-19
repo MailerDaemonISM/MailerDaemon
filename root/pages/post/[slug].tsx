@@ -128,9 +128,9 @@ function PostPage({ post }: Props) {
 
       {submitted ? (
         <div className="my-10 mx-auto flex max-w-2xl flex-col bg-yellow-500 p-10 text-white">
-          <h3 className="text-3xl font-bold">
+          {/* <h3 className="text-3xl font-bold">
             Thank You for submitting your comment!
-          </h3>
+          </h3> */}
           {/* <p>Once it has been approved,it will appear below!!!</p> */}
         </div>
       ) : (
@@ -138,7 +138,7 @@ function PostPage({ post }: Props) {
           onSubmit={handleSubmit(onSubmit)}
           className="mx-auto mb-10 flex max-w-2xl flex-col p-5"
         >
-          <h3 className="text-sm text-yellow-500">Enjoyed this article?</h3>
+          {/* <h3 className="text-sm text-yellow-500">Enjoyed this article?</h3>
           <h4 className="text-3xl font-bold">Leave a comment below!</h4>
           <hr className="mt-2 py-3" />
 
@@ -147,9 +147,9 @@ function PostPage({ post }: Props) {
             type="hidden"
             name="_id"
             value={post._id}
-          />
+          /> */}
 
-          <label className="mb-5 block">
+          {/* <label className="mb-5 block">
             <span className="text-gray-700">Name</span>
             <input
               {...register('name', { required: true })}
@@ -175,7 +175,7 @@ function PostPage({ post }: Props) {
               placeholder="Enter your comment here..."
               rows={8}
             />
-          </label>
+          </label> */}
           {/* errors */}
           <div className="flex flex-col p-5">
             {errors.name && (
@@ -190,10 +190,10 @@ function PostPage({ post }: Props) {
               </span>
             )}
           </div>
-          <input
+          {/* <input
             className="focus:shadow-outline cursor-pointer rounded bg-yellow-500 py-2 px-4 font-bold text-white shadow hover:bg-yellow-400 focus:outline-none"
             type="submit"
-          />
+          /> */}
         </form>
       )}
       {/* <div className="my-10 mx-auto flex max-w-2xl flex-col space-y-2 p-10 shadow shadow-yellow-500">
